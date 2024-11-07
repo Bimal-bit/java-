@@ -266,3 +266,23 @@ class SearchMin2d {
     }
 
 
+//1295 find numberes with number of digits
+class EvenDigits{
+    public static void main(String[] args) {
+        nums={11,1,584,5697,55};
+        int ans=findNumbers(nums);
+        System.out.println(ans);
+
+    }
+    static int findNumbers(int []nums){
+        int count=0;
+        for (int i = 0; i < nums.length; i++) {
+            if (i%2==0){
+                count++;
+
+            }
+
+        }
+        return count;
+    }
+}
