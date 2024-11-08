@@ -126,3 +126,31 @@ class RverseCeilingOfNumber {
         return end;
     }
 }
+
+//744. Find Smallest Letter Greater Than Target
+
+class nextGreatestLetter{
+    public static void main(String[] args) {
+        char arr[] = {'c','d','f','j'};
+        char target = 'j';
+        char ans = search(arr, target);
+        System.out.println(ans);
+    }
+
+    static char search(char arr[], char target) {
+        int start = 0;
+        int end = arr.length - 1;
+
+        while (start <= end) {
+            int middle = start + (end - start) / 2;
+
+            if (target < arr[middle]) {
+                end = middle - 1;
+            } else  {
+                start = middle + 1;
+            }
+        }
+
+        return arr[start % arr.length];
+    }
+}
