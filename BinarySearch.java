@@ -1,0 +1,59 @@
+class BinarySearch {
+    public static void main(String[] args) {
+        int arr[] = {11, 12, 13, 14, 15, 16, 17, 18, 19};
+        int target = 18;
+        int ans = search(arr, target);
+        System.out.println(ans);
+    }
+
+    static int search(int arr[], int target) {
+        int start = 0;
+        int end = arr.length - 1;
+
+        while (start <= end) {
+            int middle = start + (end - start) / 2;
+
+            if (target < arr[middle]) {
+                end = middle - 1;
+            } else if (target > arr[middle]) {
+                start = middle + 1;
+            } else {
+                return middle;
+            }
+        }
+
+        return -1;
+    }
+}
+
+
+
+class OrderDiagnosticBinarySearch {
+    public static void main(String[] args) {
+        int arr[] = {11, 12, 13, 14, 15, 16, 17, 18, 19};
+        int target = 18;
+        int ans = search(arr, target);
+        System.out.println(ans);
+    }
+
+    static int search(int arr[], int target) {
+        int start = 0;
+        int end = arr.length - 1;
+        boolean isasc=arr[start] < arr[end];
+        System.out.println(isasc);
+
+        while (start <= end) {
+            int middle = start + (end - start) / 2;
+
+            if (target < arr[middle]) {
+                end = middle - 1;
+            } else if (target > arr[middle]) {
+                start = middle + 1;
+            } else {
+                return middle;
+            }
+        }
+
+        return -1;
+    }
+}
