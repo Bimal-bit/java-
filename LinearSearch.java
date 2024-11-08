@@ -245,7 +245,7 @@ class SearchMin2d {
         };
         
         int ans = find(arr);
-        System.out.println(Arrays.toString(ans));
+//        System.out.println(Arrays.toString(ans));
 
     }
 
@@ -266,23 +266,63 @@ class SearchMin2d {
     }
 
 
+
 //1295 find numberes with number of digits
 class EvenDigits{
     public static void main(String[] args) {
-        nums={11,1,584,5697,55};
+        int []nums= {11, 1, 584, 5697, 55};
         int ans=findNumbers(nums);
         System.out.println(ans);
 
     }
     static int findNumbers(int []nums){
         int count=0;
+        int ec=0;
         for (int i = 0; i < nums.length; i++) {
-            if (i%2==0){
+            while (nums[i]!=0){
                 count++;
+                nums[i]/=10;
+
+            }
+            ec+=((count%2==0)?1:0);
+            count=0;
+
+        }
+        return ec;
+    }
+}
+
+//1672 Richest coustemer wealth
+
+class maxwealth{
+    public static void main(String[] args) {
+        int [][]arr={
+                {1, 2, 3},
+                {5, 6, 10},
+                {8, 6, 6},
+                {11,25,99}
+        };
+        int ans =max(arr);
+        System.out.println(ans);
+
+    }
+    static int max (int [][ ]arr){
+        int sum=0;
+        int max=0;
+        for (int i = 0; i <arr.length; i++) {
+            sum=0;
+
+            for (int j = 0; j < arr[i].length; j++) {
+                sum+=arr[i][j];
+
+            }
+            if (sum >= max) {
+                max=sum;
 
             }
 
+
         }
-        return count;
+        return max;
     }
 }
