@@ -245,7 +245,7 @@ class SearchMin2d {
         };
         
         int ans = find(arr);
-//        System.out.println(Arrays.toString(ans));
+//    System.out.println(Arrays.toString(ans));
 
     }
 
@@ -306,7 +306,7 @@ class maxwealth{
         System.out.println(ans);
 
     }
-    static int max (int [][ ]arr){
+    static int max (int [][]arr){
         int sum=0;
         int max=0;
         for (int i = 0; i <arr.length; i++) {

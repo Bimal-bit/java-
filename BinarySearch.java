@@ -207,3 +207,51 @@ class FirstAndLast {
     }
 
 }
+
+//finding target in an infinite array
+
+ class InfiniteArray
+{
+    public static void main(String[] args)
+    {
+        int[] a={2,3,4,5,7,8,9,11,22,35,48,51,82,95,115,270};
+        int target=95;
+        int result= findPosition(a, target);
+        System.out.println(result);
+    }
+
+
+    public static int findPosition(int[] arr, int target)
+    {
+        int start=0;
+        int end=1;
+        while(target > arr[end])
+        {
+            int sizeOfBox=end-start+1;
+            start=end+1;
+            end = end + sizeOfBox * 2;
+            if(end >= arr.length)
+            {
+                end = arr.length - 1; //make end index=last index of array
+                if(target>arr[end])
+                    return -1;
+            }
+        }
+        return binarySearch(arr, target, start, end);
+    }
+
+    public static int binarySearch(int[] a, int target, int start, int end)
+    {
+        while(start <= end)
+        {
+            int mid= start + (end-start) / 2;
+            if(target == a[mid])
+                return mid;
+            else if(target < a[mid])
+                end = mid-1;
+            else if(target > a[mid])
+                start = mid+1;
+        }
+        return -1;
+    }
+}
