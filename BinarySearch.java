@@ -255,3 +255,61 @@ class FirstAndLast {
         return -1;
     }
 }
+
+//852. Peak Index in a Mountain Array
+//this is my logic
+//to solve this question time complexity should be O(log(n))
+
+class PeakIndex {
+    public static void main(String[] args) {
+        int arr[] = {11, 12, 13, 14, 15,16, 10, 9, 8, 7};
+
+        int ans = search(arr);
+        System.out.println(ans);
+    }
+
+    static int search(int arr[]) {
+        int ans=0;
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i]>arr[i+1]){
+                return i;
+            }
+        }
+            return -1;
+        }
+
+
+        }
+//or
+//you can try this
+//852. Peak Index in a Mountain Array
+
+class PeakIndex1 {
+    public static void main(String[] args) {
+        int arr[] = {11, 12, 13, 14, 15,16, 11, 10, 9, 8};
+
+        int ans = search(arr);
+        System.out.println(ans);
+    }
+
+    static int search(int arr[]  ) {
+        int start = 0;
+        int end = arr.length - 1;
+
+        while (start <= end) {
+            int middle = start + (end - start) / 2;
+
+            if (arr[middle+1] < arr[middle]) {
+                end = middle - 1;
+            } else if (arr[middle+1] > arr[middle]) {
+                start = middle + 1;
+            } else {
+                return middle;
+            }
+        }
+
+        return end+1;
+    }
+}
+
