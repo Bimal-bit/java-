@@ -353,7 +353,7 @@ class TwoSum{
 //this was asked in geeks for geeks
 class SecondLargest{
     public static void main(String[] args) {
-        int []arr={12 ,35 ,1 ,10 ,34,1,60,70};
+        int []arr={12 ,90,35 ,1 ,10 ,34,1,60,70};
         int ans =sol(arr);
         System.out.println(ans);
 

@@ -320,8 +320,8 @@ class PeakIndex1 {
 
 class RotatedArray {
     public static void main(String[] args) {
-        int arr[] = {11, 12, 13, 14, 15, 10, 9, 8, 7};
-        int target = 1;
+        int arr[] = {11, 12,   15, 10, 9};
+        int target = 0;
         int ans = search(arr, target);
         out.println(ans);
     }
@@ -386,24 +386,96 @@ class temp {
 }
 
 
-class trial{
+
+//duplicate values in Rotated Sorted Array
+class duplicate {
     public static void main(String[] args) {
+        int arr[]={5,6,6,7,7,4,3,3,2};
+        int ans=find(arr);
+        out.println(ans);
+
 
     }
-    static  int sol(int []arr){
-        int start=0;
-        int end=arr.length-1;
-        while (start <=end) {
-            int mid = start + (end - start) / 2;
+    static int find(int arr[]){
+        int pivot=findPivot(arr);
+        return pivot+1;
+    }
 
-            if (arr[mid] > arr[mid + 1]) {
-                return mid;
+    static int findPivot(int arr[]) {
+        int start = 0;
+        int end = arr.length - 1;
+
+        while (start <= end) {
+            int middle = start + (end - start) / 2;
+
+            // Check if middle is the pivot
+            if (middle < end && arr[middle] > arr[middle + 1]) {
+                return middle;
+            }
+            if (middle > start && arr[middle] < arr[middle - 1]) {
+                return middle - 1;
+            }
+            if (arr[middle] == arr[start] && arr[middle] == arr[end]) {
+                if (arr[start] > arr[start]) {
+                    return start;
+                }
+                start++;
+                if (arr[end] < arr[end - 1]) {
+                    return end;
+                }
+                end--;
+
+            }
+            else if (arr[start]<arr[middle ]||arr[start]==arr[middle] && arr[middle]>arr[end]){
+                start=middle+1;
+            }
+            else {
+                end=middle-1;
             }
 
 
         }
         return -1;
-       
     }
 }
 
+
+//count rotation on an array(index)
+
+class CountRotation {
+    public static void main(String[] args) {
+        int arr[] = {5, 6,7,8,2,3};
+        int ans = countRotations(arr);
+        System.out.println(ans);
+    }
+
+    static int countRotations(int arr[]) {
+        int pivot = findPivot(arr);
+        return pivot+1 ;
+    }
+
+    static int findPivot(int arr[]) {
+        int start = 0;
+        int end = arr.length - 1;
+
+        while (start <= end) {
+            int middle = start + (end - start) / 2;
+
+            // Check if the middle is the pivot
+            if (middle < end && arr[middle] > arr[middle + 1]) {
+                return middle;
+            }
+            if (middle > start && arr[middle] < arr[middle - 1]) {
+                return middle - 1;
+            }
+
+            // Adjust start or end based on comparison
+            if (arr[middle] <= arr[start]) {
+                end = middle - 1;
+            } else {
+                start = middle + 1;
+            }
+        }
+        return -1;
+    }
+}
