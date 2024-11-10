@@ -245,3 +245,40 @@ class reverseingarr{
 
     }
 }
+
+//odd or even in separate function
+
+class OddOrEven1{
+    public static void main(String[] args) {
+        int n = 11;
+        int ODDno = odd(n);
+        int EVENno = even(n);
+        System.out.println("the odd is "+ODDno);
+        System.out.println("the even is "+EVENno);
+    }
+
+    static  int even(int n){
+        int count=0;
+        for (int i = 1; i <=n ; i++) {
+            if(i%2==0){
+                count++;
+            }
+
+        }
+        return count;
+
+    }
+    static  int odd(int n){
+        int count=0;
+        for (int i = 1; i <=n ; i++) {
+            if(i%2!=0){
+                count++;
+            }
+
+        }
+        return count;
+
+    }
+
+}
+

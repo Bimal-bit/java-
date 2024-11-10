@@ -442,6 +442,7 @@ class duplicate {
 
 //count rotation on an array(index)
 
+
 class CountRotation {
     public static void main(String[] args) {
         int arr[] = {5, 6,7,8,2,3};
@@ -479,3 +480,50 @@ class CountRotation {
         return -1;
     }
 }
+//410. Split Array Largest Sum
+//this is working code that I created, but leetcode did not accept the answer
+//but time complexity of the code is more
+
+class split{
+    public static void main(String[] args) {
+        int []arr={7,2,5,10,8};
+        int target = 2;
+        int sol= ans(arr,target);
+        out.println(sol);
+
+    }
+    static int ans(int arr[],int target){
+        int m=first(arr,target);
+        int n =last(arr,target);
+        if(m>n){
+            return m;
+        }
+        else {
+            return n;
+        }
+    }
+
+
+    static int first(int arr[],int target){
+        int start = 0;
+        int end =arr.length-target;
+        int sum =0;
+        for (int i = start; i <end ; i++) {
+            sum=sum+arr[i];
+
+        }
+        return sum;
+
+    }
+    static int last (int arr[],int target){
+        int start=arr.length-target;
+        int end = arr.length-1;
+        int sum = 0;
+        for (int i = start; i <= end; i++) {
+            sum=sum+arr[i];
+
+        }
+        return sum;
+    }
+}
+
