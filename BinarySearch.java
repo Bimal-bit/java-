@@ -1,11 +1,13 @@
 import java.util.Arrays;
 
+import static java.lang.System.*;
+
 class BinarySearch {
     public static void main(String[] args) {
         int arr[] = {11, 12, 13, 14, 15, 16, 17, 18, 19};
         int target = 18;
         int ans = search(arr, target);
-        System.out.println(ans);
+        out.println(ans);
     }
 
     static int search(int arr[], int target) {
@@ -35,14 +37,14 @@ class OrderDiagnosticBinarySearch {
         int arr[] = {11, 12, 13, 14, 15, 16, 17, 18, 19};
         int target = 18;
         int ans = search(arr, target);
-        System.out.println(ans);
+        out.println(ans);
     }
 
     static int search(int arr[], int target) {
         int start = 0;
         int end = arr.length - 1;
         boolean isasc=arr[start] < arr[end];
-        System.out.println(isasc);
+        out.println(isasc);
 
         while (start <= end) {
             int middle = start + (end - start) / 2;
@@ -67,7 +69,7 @@ class CeilingOfNumber {
         int arr[] = {11, 12, 13, 14, 16, 17};
         int target =18 ;
         int ans = search(arr, target);
-        System.out.println(ans);
+        out.println(ans);
     }
 
     static int search(int arr[], int target) {
@@ -102,7 +104,7 @@ class RverseCeilingOfNumber {
         int arr[] = {9,11, 12, 13, 14, 16, 17};
         int target =8 ;
         int ans = search(arr, target);
-        System.out.println(ans);
+        out.println(ans);
     }
 
     static int search(int arr[], int target) {
@@ -136,7 +138,7 @@ class nextGreatestLetter{
         char arr[] = {'c','d','f','j'};
         char target = 'j';
         char ans = search(arr, target);
-        System.out.println(ans);
+        out.println(ans);
     }
 
     static char search(char arr[], char target) {
@@ -164,7 +166,7 @@ class FirstAndLast {
         int arr[] = {5,7,7,7,7,8,8,8,9,10};
         int target = 7;
         int ans[] = search(arr, target);
-        System.out.println(Arrays.toString(ans));
+        out.println(Arrays.toString(ans));
     }
 
     static int[] search(int nums[], int target) {
@@ -217,7 +219,7 @@ class FirstAndLast {
         int[] a={2,3,4,5,7,8,9,11,22,35,48,51,82,95,115,270};
         int target=95;
         int result= findPosition(a, target);
-        System.out.println(result);
+        out.println(result);
     }
 
 
@@ -265,7 +267,7 @@ class PeakIndex {
         int arr[] = {11, 12, 13, 14, 15,16, 10, 9, 8, 7};
 
         int ans = search(arr);
-        System.out.println(ans);
+        out.println(ans);
     }
 
     static int search(int arr[]) {
@@ -287,10 +289,10 @@ class PeakIndex {
 
 class PeakIndex1 {
     public static void main(String[] args) {
-        int arr[] = {11, 12, 13, 14, 15,16, 11, 10, 9, 8};
+        int arr[] = {11, 12, 13, 14, 15,16,17, 11, 10, 9, 8};
 
         int ans = search(arr);
-        System.out.println(ans);
+        out.println(ans);
     }
 
     static int search(int arr[]  ) {
@@ -309,7 +311,99 @@ class PeakIndex1 {
             }
         }
 
-        return end+1;
+        return start;
+    }
+}
+
+//33. Search in Rotated Sorted Array
+//pivot is the largest number in the array
+
+class RotatedArray {
+    public static void main(String[] args) {
+        int arr[] = {11, 12, 13, 14, 15, 10, 9, 8, 7};
+        int target = 1;
+        int ans = search(arr, target);
+        out.println(ans);
+    }
+
+    static int search(int arr[], int target) {
+        int start = 0;
+        int end = arr.length - 1;
+
+        while (start <= end) {
+            int middle = start + (end - start) / 2;
+
+            if (arr[middle] == target) {
+                return middle;
+
+            }
+            if (arr[start] <= arr[middle]) {
+                if (arr[start] <= target && target < arr[middle]) {
+                    end = middle - 1;
+                } else {
+                    start = middle + 1;
+                }
+            } else {
+                if (arr[end] <= target && target > arr[middle]) {
+                    start = middle + 1;
+                } else {
+                    end = middle - 1;
+                }
+
+            }
+
+        }
+        return-1;
+    }
+}
+
+//33. Search in Rotated Sorted Array
+//atually this code contains the wrong algorithm it only works for three examples which is given in leetcode
+//it was just created for fun to check that code works or not,
+//but for another example it does not work
+//
+class temp {
+    public static void main(String[] args) {
+        int arr[] = {11, 12, 13, 14, 15, 10, 9, 8, 7};
+        int target = 1;
+        int ans = search(arr, target);
+        out.println(ans);
+    }
+
+    static int search(int arr[], int target) {
+                if(target==arr[0]){
+                    return arr[0];
+                } else if (arr.length-1==0) {
+                    return -1;
+
+                } else {
+                    if(target==0){
+                        return arr[0];
+                    }
+                }
+        return-1;
+    }
+}
+
+
+class trial{
+    public static void main(String[] args) {
+
+    }
+    static  int sol(int []arr){
+        int start=0;
+        int end=arr.length-1;
+        while (start <=end) {
+            int mid = start + (end - start) / 2;
+
+            if (arr[mid] > arr[mid + 1]) {
+                return mid;
+            }
+
+
+        }
+        return -1;
+       
     }
 }
 

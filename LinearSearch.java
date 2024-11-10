@@ -185,7 +185,6 @@ class SerachForMax {
     public static void main(String[] args) {
         int arr[] = {2,3,1,4,5,6};
 
-
         int ans = ls2(arr);
         System.out.println("your value found at index "+ans);
     }
@@ -197,11 +196,8 @@ class SerachForMax {
         for (int i = 1; i < arr.length; i++) {
             if (arr[i] > max) {
                 max= arr[i];
-
-
             }
         }
-
         return max;
     }
 }
@@ -326,3 +322,62 @@ class maxwealth{
         return max;
     }
 }
+
+//two sum
+
+class TwoSum{
+    public static void main(String[] args) {
+        int []arr ={10,3,5,6,7,7,4,6};
+        int target=20;
+        int []ans =sol(arr,target);
+        System.out.println(Arrays.toString(ans));
+    }
+    static int[] sol(int []arr, int target){
+
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i+1; j <arr.length ; j++) {
+
+
+                if (arr[i]+arr[i+1]==target) {
+                    return new int[]{i, j};
+                }
+
+            }
+
+        }
+        return new int[]{};
+    }
+}
+
+//second-largest element
+//this was asked in geeks for geeks
+class SecondLargest{
+    public static void main(String[] args) {
+        int []arr={12 ,35 ,1 ,10 ,34,1,60,70};
+        int ans =sol(arr);
+        System.out.println(ans);
+
+
+
+    }
+    static  int sol(int arr[]){
+
+
+        int max =-1;
+        int min =-1;
+        for (int i = 0; i < arr.length; i++) {
+            int num = arr[i];
+            if (arr[i] > max) {
+                min = max;
+                max = arr[i];
+            } else if (num > min && num != max) {
+                min=num;
+
+            }
+
+
+        }
+
+        return min;
+        }
+    }
