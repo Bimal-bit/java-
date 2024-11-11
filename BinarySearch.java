@@ -31,7 +31,7 @@ class BinarySearch {
 }
 
 
-//
+// fi =nd order diagnostic binary search
 class OrderDiagnosticBinarySearch {
     public static void main(String[] args) {
         int arr[] = {11, 12, 13, 14, 15, 16, 17, 18, 19};
@@ -527,3 +527,149 @@ class split{
     }
 }
 
+
+//to find target in 2d array
+//brute force method
+class Array2d{
+    public static void main(String[] args) {
+
+
+        int[][] arr = {
+                {11, 22, 33},
+                {66, 77, 88},
+                {55, 44, 99}
+        };
+        int target = 99;
+        int []ans =find(arr,target);
+        out.println(Arrays.toString(ans));
+    }
+    static int[] find(int [][] arr, int target) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr.length; j++) {
+                if (arr[i][j]==target){
+                    return new int [] {i,j};
+                }
+
+
+            }
+
+        }
+        return new int[] {-1,-1};
+
+    }
+
+}
+
+
+//finding target in 2d array
+class BinarySearch2D {
+    public static void main(String[] args) {
+        int[][] arr = {
+                {11, 22, 33},
+                {44, 55, 66},
+                {77, 88, 99}
+        };
+        int target = 88;
+        int[] ans = search(arr, target);
+        out.println(Arrays.toString(ans));
+    }
+    static int [] search( int[][] arr,int target){
+        int r=0;
+        int c =arr.length-1;
+        while (r<arr.length && c>=0){
+            if (arr[r][c]==target){
+                return new int []{r,c};
+
+            }
+            if (arr [r][c]<target){
+                r++;
+            }
+            else {
+                c--;
+            }
+
+        }
+        return  new int []{-1,-1};
+
+    }
+}
+
+
+//sorted an array in 2d
+
+
+class SortedSearch2D {
+    public static void main(String[] args) {
+        int[][] arr = {
+                {11, 22, 33},
+                {44, 55, 66},
+                {77, 88, 99}
+        };
+        int target = 88;
+        int[] ans = search(arr, target);
+        System.out.println(Arrays.toString(ans));
+    }
+
+    // Search in a specific row between given columns
+    static int[] find(int[][] arr, int row, int cStart, int cEnd, int target) {
+        while (cStart <= cEnd) {
+            int mid = cStart + (cEnd - cStart) / 2;
+            if (target == arr[row][mid]) {
+                return new int[]{row, mid};
+            }
+            if (arr[row][mid] < target) {
+                cStart = mid + 1;
+            } else {
+                cEnd = mid - 1;
+            }
+        }
+        return new int[]{-1, -1};
+    }
+
+    // Main search function
+    static int[] search(int[][] arr, int target) {
+        int row = arr.length;
+        int col = arr[0].length;
+
+        if (row == 1) {
+            return find(arr, 0, 0, col - 1, target);
+        }
+
+        int rStart = 0;
+        int rEnd = row - 1;
+        int cMid = col / 2;
+
+        // Reduce the search to two rows
+        while (rStart < (rEnd - 1)) {  // Keep two rows in the search range
+            int mid = rStart + (rEnd - rStart) / 2;
+            if (arr[mid][cMid] == target) {
+                return new int[]{mid, cMid};
+            }
+            if (arr[mid][cMid] < target) {
+                rStart = mid;
+            } else {
+                rEnd = mid;
+            }
+        }
+
+        // Check the middle column in the reduced rows
+        if (arr[rStart][cMid] == target) {
+            return new int[]{rStart, cMid};
+        }
+        if (arr[rStart + 1][cMid] == target) {
+            return new int[]{rStart + 1, cMid};
+        }
+
+        // Search in the four possible sub-arrays
+        if (target <= arr[rStart][cMid - 1]) {
+            return find(arr, rStart, 0, cMid - 1, target);
+        }
+        if (target >= arr[rStart][cMid + 1] && target <= arr[rStart][col - 1]) {
+            return find(arr, rStart, cMid + 1, col - 1, target);
+        }
+        if (target <= arr[rStart + 1][cMid - 1]) {
+            return find(arr, rStart + 1, 0, cMid - 1, target);
+        }
+        return find(arr, rStart + 1, cMid + 1, col - 1, target);
+    }
+}
