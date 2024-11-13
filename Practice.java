@@ -140,5 +140,31 @@ class add {
     }
 }
 
+//26. Remove Duplicates from Sorted Array
 
+class FindDuplicate{
+    public static void main(String[] args) {
+        int arr[] = {0,0,1,1,1,2,2,3,3,4};
+        int ans =find(arr);
+        System.out.println(ans);
+
+    }
+    static int find (int arr[]){
+        int ans =0;
+        for (int i = 0; i < arr.length; i++) {
+                if (arr[ans]!=arr[i]){
+                    ans++;
+                    arr[ans]=arr[i];
+
+                }
+
+            }
+
+
+        return ans+1;
+        }
+    }
+
+
+//
 
