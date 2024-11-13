@@ -2,6 +2,7 @@
 //27. Remove Element
 //using brute force method
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 class RemoveElement {
@@ -32,7 +33,7 @@ class RemoveElement {
 
 
 //136. Single Number
-//if the number is repeating twice the we can use xor operator to probelm
+//if the number is repeated twice, we can use xor operator for the problem
 
 //Using these properties, we can deduce that if we XOR all the numbers in the array,
 // pairs of identical numbers will cancel each other out, leaving only the single, unique number.
@@ -53,5 +54,39 @@ class SingleNumber {
     }
 }
 
+
+
+//swap the numberes using bubble sort
+class BubblwSort{
+    public static void main(String[] args) {
+
+        int arr[] = {5, 2,6, 3,7, 1};
+        find(arr);
+        System.out.println(Arrays.toString(arr));
+
+    }
+    static void find (int [ ]arr){
+        boolean swap;
+        for (int i = 0; i < arr.length; i++) {
+            swap=false;
+            for (int j = 1; j <arr.length-i ; j++) {
+                if (arr[j]<arr[j-1]) {
+                    int temp =arr[j];
+                    arr[j]=arr[j-1];
+                    arr[j-1]=temp;
+                    swap=true;
+
+                }
+
+            }
+
+        if(!swap){
+            break;
+        }
+        }
+
+    }
+
+        }
 
 
