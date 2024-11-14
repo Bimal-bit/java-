@@ -59,11 +59,74 @@ class InsertionSort {
         }
 
      static void Swap(int[] arr, int j, int i) {
-         for (int k = 0; k < arr.length; k++) {
+
              int temp = arr[j];
              arr[j]=arr[i];
              arr[i]=temp;
 
-         }
+
+    }
+}
+
+//268. Missing Number
+//in sum it adds all the index value (fibanocci);
+//but it adds only arr.length -1
+//so you should seperatly add arr.length value to sum
+//then you add all the elements in array
+//later subtract sum from arraysum
+
+
+class MissingNumber {
+    public static void main(String[] args) {
+        int arr[] = {3,0,1};
+        int ans = find(arr);
+        System.out.println(ans);
+
+    }
+
+    static int find(int arr[]) {
+        int n = arr.length;
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+            sum += i;
+        }
+           sum+=arr.length;
+
+        int arraySum = 0;
+
+        for (int i = 0; i < n; i++) {
+            arraySum += arr[i];
+
+        }
+
+        return sum - arraySum;
+
+    }
+}
+//268. Missing Number
+//or you can try this
+//where n = total number of element(it starts from 1)
+//expected stores the number (basically its a fibanocci of arr.length)
+//after gettinng the epxpected value
+//you can now add all the elements in arry
+//then subtarct expected sum
+
+class MissingNumber2 {
+    public static void main(String[] args) {
+        int arr[] = {3,0,1};
+        int ans = find(arr);
+        System.out.println(ans);
+
+    }
+
+    static int find(int arr[]) {
+        int n = arr.length;
+        int exptected = n*(n+1)/2;
+        int sum =0;
+        for (int i = 0; i < n; i++) {
+            sum+=arr[i];
+
+        }
+        return exptected-sum;
     }
 }
