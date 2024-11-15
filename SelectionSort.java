@@ -40,3 +40,31 @@ public class SelectionSort {
 
 }
 
+//69. Sqrt(x)
+
+ class Sqrt {
+     public static void main(String[] args) {
+         int x= 4;
+         int ans =mySqrt(x);
+         System.out.println(ans);
+
+
+     }
+    static int mySqrt(int x) {
+        if (x == 0) return 0; // Special case for 0
+
+        int left = 1, right = x, ans = 0;
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2;  // Prevent overflow by using this formula for mid
+            if (mid <= x / mid) {  // Equivalent to mid * mid <= x but avoids overflow
+                ans = mid;         // Store mid as potential answer
+                left = mid + 1;    // Try to find a larger square root
+            } else {
+                right = mid - 1;   // Look for a smaller value
+            }
+        }
+
+        return ans;
+    }
+}
