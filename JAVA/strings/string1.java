@@ -17,7 +17,8 @@ class string {
         String h = new String("kl ");
         System.out.println(k == h);
         System.out.println(a.equals(b));
-//        TO FIND THE VALUE IN THE INDEX
+
+// TO FIND THE VALUE IN THE INDEX
         System.out.println(a.charAt(0));
 
 
@@ -49,9 +50,9 @@ class operators{
 
         System.out.println("bimal"+new ArrayList<>(1));
 //        there should be string object to use + operator
-        String c=new Integer(55)+" "+new ArrayList<>(1);
-        System.out.println(c);
-        System.out.println("bimal"+new Integer(11));
+       String c=new Integer(55)+" "+new ArrayList<>(1);
+       System.out.println(c);
+       System.out.println("bimal"+new Integer(11));
     }
 }
 
