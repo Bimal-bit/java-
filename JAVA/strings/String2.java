@@ -4,7 +4,9 @@
 //if one variable name changes it points to another name,
 //it does not alter both variables
 
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 class String2 {
      public static void main(String[] args) {
@@ -95,6 +97,27 @@ class Performance{
 
         }
         System.out.println(Series+" ");
+
+    }
+}
+
+
+//converts into array format
+class Methods1{
+    public static void main(String[] args) {
+        String str = "Bimal kl";
+        String str1= " k l";
+        System.out.println(Arrays.toString(str.toCharArray()));
+        System.out.println(str.toLowerCase());
+        System.out.println(str.toUpperCase());
+        System.out.println(str.getBytes(StandardCharsets.UTF_8));
+        System.out.println(str.getBytes());
+        System.out.println(str.equals(str1));
+        System.out.println(str.indexOf("B"));
+        System.out.println(str.length());
+        System.out.println(str.concat(str1));
+        System.out.println(str.strip());
+        System.out.println(Arrays.toString(str.split(",")));
 
     }
 }
