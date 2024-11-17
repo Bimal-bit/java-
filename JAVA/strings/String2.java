@@ -81,6 +81,10 @@ class Operator1{
     }
 }
 
+//to print thw alphebets, you should explicitly convert int to char
+//first it will point to an in pool
+//next it does not append the value it creates a new object ab and so on
+
 class Performance{
     public static void main(String[] args) {
         String Series ="";
