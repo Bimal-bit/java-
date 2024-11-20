@@ -36,3 +36,22 @@ package recursion;
      }
 
 }
+
+// in recursion, it calls function itlef
+class  recursion1{
+    public static void main(String[] args) {
+        print1(1);
+
+    }
+    static void print1(int n ){
+        if (n == 6 ){
+            System.out.println(6);
+            return;
+        }
+
+        System.out.println(n);
+        print1(n+1);
+    }
+}
+
+
