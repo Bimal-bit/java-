@@ -1,9 +1,8 @@
-
+package arrays;
 //27. Remove Element
 //using linear search
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 class RemoveElement {
      public static void main(String[] args) {
@@ -34,7 +33,6 @@ class RemoveElement {
 
 //136. Single Number
 //if the number is repeated twice, we can use xor operator for the problem
-
 //Using these properties, we can deduce that if we XOR all the numbers in the array,
 // pairs of identical numbers will cancel each other out, leaving only the single, unique number.
 class SingleNumber {

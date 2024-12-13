@@ -1,3 +1,5 @@
+package arrays;
+
 import java.util.Arrays;
 
 import static java.lang.System.*;
@@ -102,7 +104,7 @@ class CeilingOfNumber {
 class RverseCeilingOfNumber {
     public static void main(String[] args) {
         int arr[] = {9,11, 12, 13, 14, 16, 17};
-        int target =8 ;
+        int target =12 ;
         int ans = search(arr, target);
         out.println(ans);
     }

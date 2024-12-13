@@ -1,3 +1,5 @@
+package arrays;
+
 import java.util.Arrays;
 
 //its more like bubble sort
@@ -76,7 +78,7 @@ class InsertionSort {
 //later subtract sum from arraysum
 
 
-class MissingNumber {
+class MissingNumber1 {
     public static void main(String[] args) {
         int arr[] = {3,0,1};
         int ans = find(arr);

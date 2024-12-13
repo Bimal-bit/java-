@@ -1,3 +1,5 @@
+package arrays;
+
 import java.util.*;
 
 class Result1 {
@@ -166,5 +168,194 @@ class FindDuplicate{
     }
 
 
-//
+//Basic Bubble Sort Implementation:
+//Write a program to implement the Bubble Sort algorithm.
+//Example: Given an array [64, 34, 25, 12, 22, 11, 90], the output should be [11, 12, 22, 25, 34, 64, 90].
+
+class Main {
+    public static void main(String[] args) {
+        int [ ] arr= {64, 34, 25, 12, 22, 11, 90};
+        sort(arr);
+        System.out.println(Arrays.toString(arr));
+    }
+
+     static void sort(int[] arr) {
+        boolean flag;
+         for (int i = 0; i < arr.length; i++) {
+             flag=false;
+             for (int j = 1; j < arr.length-i ; j++) {
+                 if (arr[j]<arr[j-1]){
+                     int temp=arr[j];
+                     arr[j]=arr[j-1];
+                     arr[j-1]=temp;
+                     flag=true;
+                 }
+
+             }
+             if(!flag){
+                 break;
+             }
+
+         }
+    }
+
+}
+
+//cycle sort for revision
+//Identify the correct position for every element in the array.
+//Place the element at its correct position, and if any element is displaced, find its correct position and place it there. This continues in cycles until all elements are placed correctly.
+//The process involves cycles, where a cycle ends when the element originally at the starting position is placed back in its correct position.
+class CycleSort1{
+    public static void main(String[] args) {
+        int arr[]={6,5,3,1,2,4};
+        sort(arr);
+        System.out.println(Arrays.toString(arr));
+
+    }
+    static void sort(int []arr ){
+        int i = 0 ;
+        while (i< arr.length){
+            int check = arr[i]-1;
+            if(arr[i]!=arr[check]){
+                swap(arr,i,check);
+            }
+            else {
+                i++;
+
+            }
+        }
+
+        }
+
+     static void swap(int []arr,int i, int check) {
+        int temp =arr[i];
+        arr[i]=arr[check];
+        arr[check]=temp;
+    }
+
+}
+
+
+
+class MissingNo_CycleSort1{
+    public static void main(String[] args) {
+        int arr[]={6,5,3,1,2,0};
+        System.out.println(sort(arr));
+
+
+    }
+    static int  sort(int []arr ){
+        int i = 0 ;
+        while (i< arr.length){
+            int check = arr[i];
+            if(arr[i]< arr.length && arr[i]!=arr[check]){
+                swap(arr,i,check);
+            }
+            else {
+                i++;
+
+            }
+
+        }
+        for (int j = 0; j < arr.length; j++) {
+
+
+            if (arr[j] != j) {
+                return j;
+            }
+        }
+
+            return arr.length;
+
+
+    }
+
+    static void swap(int []arr,int i, int check) {
+        int temp =arr[i];
+        arr[i]=arr[check];
+        arr[check]=temp;
+    }
+
+}
+
+
+class DuplicateNo{
+    public static void main(String[] args) {
+        int arr[]={6,5,3,1,2,0};
+        System.out.println(sort(arr));
+
+
+    }
+    static int  sort(int []arr ){
+        int i = 0 ;
+        while (i< arr.length){
+            int check = arr[i];
+            if(arr[i]< arr.length && arr[i]!=arr[check]){
+                swap(arr,i,check);
+            }
+            else {
+                i++;
+
+            }
+
+        }
+        for (int j = 0; j < arr.length; j++) {
+
+
+            if (arr[j] != j) {
+                return j;
+            }
+        }
+
+        return arr.length;
+
+
+    }
+
+    static void swap(int []arr,int i, int check) {
+        int temp =arr[i];
+        arr[i]=arr[check];
+        arr[check]=temp;
+    }
+
+}
+
+
+class String2{
+    public static void main(String[] args) {
+         char []ch = {'h','e','l','l','o'};
+        Stack<Character> s = new Stack<>();
+        for (char c : ch){
+            s.push(c);
+            }
+        int i = 0;
+        while (!s.isEmpty()){
+            ch[i++]=s.pop();
+
+            }
+            System.out.println(Arrays.toString(ch));
+
+    }
+}
+
+class Solution {
+    public void reverseString(char[] s) {
+        int len = s.length;
+        int low = 0;
+        int high = len -1;
+        while(low <= high) {
+            // if two characters are different, swap them
+            // else last and first are same characters, no need to swap
+            if(s[low] != s[high]) {
+                char temp = s[low];
+                s[low] = s[high];
+                s[high] = temp;
+            }
+            low++;
+            high--;
+        }
+    }
+}
+
+
 
