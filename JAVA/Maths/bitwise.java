@@ -29,4 +29,3 @@ package Maths;
      }
  }
 
- class
