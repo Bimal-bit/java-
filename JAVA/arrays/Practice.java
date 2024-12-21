@@ -358,4 +358,54 @@ class Solution {
 }
 
 
+//153. Find Minimum in Rotated Sorted Array
 
+class FindMinInRotatedArray {
+    public static void main(String[] args) {
+        int nums[] = {3, 4, 5, 1, 2};
+        int ans = findMin(nums);
+        System.out.println(ans);
+    }
+
+    static int findMin(int[] nums) {
+        int start = 0;
+        int end = nums.length - 1;
+
+        while (start < end) {
+            int mid = start + (end - start) / 2;
+
+            // If the middle element is less than the last element, the minimum is in the left part
+            if (nums[mid] < nums[end]) {
+                end = mid-1;
+            } else { // Otherwise, the minimum is in the right part
+                start = mid + 1;
+            }
+        }
+
+        // At the end of the loop, start == end, pointing to the smallest element
+        return nums[start];
+    }
+}
+
+
+class fib{
+    public static void main(String[] args) {
+        int n = 7;
+        System.out.println(ans(n));
+
+    }
+    static int ans(int n){
+        int fina;
+        if(n==0){
+            return 0;
+        }
+        if(n==1){
+            return 1;
+        }
+        else {
+             fina=((n-1)+(n-2) );
+
+        }
+        return fina;
+    }
+}
