@@ -409,3 +409,30 @@ class fib{
         return fina;
     }
 }
+
+
+
+  // Importing Arrays utility class for sorting
+
+class Sort1 {
+    public static void main(String[] args) {
+        int[] nums = {1, 9, 8, 3, 10, 5};  // Array of integers to be sorted
+        System.out.println(find(nums));  // Call the find function and print the result
+    }
+
+    // Function to find the minimum average of pairs in a sorted array
+    static double find(int[] nums) {
+        int start = 0;  // Initialize start index
+        int end = nums.length - 1;  // Initialize end index
+        Arrays.sort(nums);  // Sort the array in ascending order
+
+        double avg = nums[start];  // Initialize avg with the first element
+
+        // Loop to find the minimum average of pairs
+        while (start < end) {
+            avg = Math.min((nums[start++] + nums[end--]) / 2.0, avg);  // Update avg with the minimum of current avg and new pair average
+        }
+
+        return avg;  // Return the minimum average
+    }
+}
